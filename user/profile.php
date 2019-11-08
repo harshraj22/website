@@ -7,7 +7,7 @@
 	        <div>
 	            <h1>Error 404 <br> <h3>The page you requested doesn't exists.</h3></h1>
 	        </div>
-	_END;
+_END;
 	    exit;
 	}
 	else if($_SESSION['loggedIn'] == false){
@@ -15,7 +15,7 @@
 			<div>
 				<h1>You need to log in first.</h1>
 			</div>
-		_END;
+_END;
 		header('Refresh:01; url=../auth/auth.php');
 		exit;
 	}
@@ -42,13 +42,19 @@
 				    	<a href="myCalander.php" class="p-3 m-3 btn btn-primary">My calander</a>
 				    	<a href="add_event.php" class="p-3 m-3 btn btn-primary">Add event</a>
 				    </div>
+					</br>
+					</br>
+					<div class="row">
+				    	<a href="https://calendar.google.com/calendar/embed?src=180010012%40iitdh.ac.in&ctz=Asia%2FKolkata" class="p-3 m-3 btn btn-primary">Calendar</a>
+				    	<a href="https://calendar.google.com/calendar/embed?src=iitdh.ac.in_kg93fmiu87ft3grqjva0r0fd8s%40group.calendar.google.com&ctz=Asia%2FKolkata" class="p-3 m-3 btn btn-primary">Cultural</a>
+				    	<a href="https://calendar.google.com/calendar/embed?src=iitdh.ac.in_onf4cdo18u684mqofapld4j2og%40group.calendar.google.com&ctz=Asia%2FKolkata" class="p-3 m-3 btn btn-primary">Sports</a>
+				    </div>
 			    </div>
 
 			</body>
 			</html>
 
-		_END;
+_END;
 	}
 
 ?>
-

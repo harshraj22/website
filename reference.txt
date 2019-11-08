@@ -1,0 +1,2 @@
+Setup to send email from php: https://www.youtube.com/watch?v=4_NP_WYFmIM
+Allow less secure apps to access email before sending email: https://devanswers.co/allow-less-secure-apps-access-gmail-account/

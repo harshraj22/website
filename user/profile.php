@@ -2,6 +2,7 @@
 	session_start();
 	require_once '../login.php';
 	// in case the user directly want's to access this page, php doesn't know whose profile to display
+	//echo $_SESSION['user'];
 	if(!isset($_SESSION['user'])){
 	    echo <<< _END
 	        <div>

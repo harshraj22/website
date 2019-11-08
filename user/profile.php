@@ -49,6 +49,11 @@ _END;
 				    	<a href="https://calendar.google.com/calendar/embed?src=iitdh.ac.in_kg93fmiu87ft3grqjva0r0fd8s%40group.calendar.google.com&ctz=Asia%2FKolkata" class="p-3 m-3 btn btn-primary">Cultural</a>
 				    	<a href="https://calendar.google.com/calendar/embed?src=iitdh.ac.in_onf4cdo18u684mqofapld4j2og%40group.calendar.google.com&ctz=Asia%2FKolkata" class="p-3 m-3 btn btn-primary">Sports</a>
 				    </div>
+					</br>
+					</br>
+					<div class="row">
+				    	<a href="add_event.php" class="p-3 m-3 btn btn-primary">Add Event</a>
+				    </div>
 			    </div>
 
 			</body>

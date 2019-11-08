@@ -40,7 +40,6 @@ _END;
 			    <div class="container p-5 m-5">
 			    	<div class="row">
 				    	<a href="update_preferences.php" class="p-3 m-3 btn btn-primary">Update Preferences</a>
-				    	<a href="myCalander.php" class="p-3 m-3 btn btn-primary">My calander</a>
 				    	<a href="add_event.php" class="p-3 m-3 btn btn-primary">Add event</a>
 				    </div>
 					</br>
@@ -52,11 +51,7 @@ _END;
 				    </div>
 					</br>
 					</br>
-					<div class="row">
-				    	<a href="add_event.php" class="p-3 m-3 btn btn-primary">Add Event</a>
-				    </div>
-					</br>
-					</br>
+					
 					<div class="row">
 				    	<a href="logout.php" class="p-3 m-3 btn btn-primary">Logout</a>
 				    </div>

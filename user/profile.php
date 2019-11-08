@@ -19,32 +19,36 @@
 		header('Refresh:01; url=../auth/auth.php');
 		exit;
 	}
+	else{
+		echo <<< _END
+			<!DOCTYPE html>
+			<html>
+			<head>
+			    <title>User Profile</title>
+			</head>
+			<body>
+
+			    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			    <link rel="stylesheet" href="style.css">
+			    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+			    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+			    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+			    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+			    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+
+			    <div class="container p-5 m-5">
+			    	<div class="row">
+				    	<a href="update_preferences.php" class="p-3 m-3 btn btn-primary">Update Preferences</a>
+				    	<a href="myCalander.php" class="p-3 m-3 btn btn-primary">My calander</a>
+				    	<a href="add_event.php" class="p-3 m-3 btn btn-primary">Add event</a>
+				    </div>
+			    </div>
+
+			</body>
+			</html>
+
+		_END;
+	}
 
 ?>
-
-
-<!DOCTYPE html>
-<html>
-<head>
-    <title>User Profile</title>
-</head>
-<body>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-
-    <div>
-    	<a href="updatePreferences.php">Update Preferences</a>
-    	<a href="myCalander.php">My calander</a>
-    	<a href="addEvent.php">Add event</a>
-
-    </div>
-
-</body>
-</html>
 

@@ -1,7 +1,7 @@
 <?php
 	//just for testing remov afterwards
 	session_start();
-	$_SESSION['user'] = "paritosh";
+	//echo $_SESSION['user'];
 	$_SESSION['logged'] = true;
 ?>
 <html>
@@ -25,7 +25,7 @@
 		<legend>Link</legend>
 		<input type="text" name="link" placeholder="link">
 		<br><br><br>
-		<legend>Select the keywords</legend> 
+		<legend>Select the keywords</legend>
 		<input type="checkbox" name="checklist[]" value="academics">Academics<br>
 		<input type="checkbox" name="checklist[]" value="sports">Sports<br>
 		<input type="checkbox" name="checklist[]" value="cultural">Cultural<br>

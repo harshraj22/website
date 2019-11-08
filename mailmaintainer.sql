@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Nov 08, 2019 at 11:11 PM
+-- Generation Time: Nov 09, 2019 at 04:22 AM
 -- Server version: 5.7.27-0ubuntu0.16.04.1
 -- PHP Version: 7.0.33-0ubuntu0.16.04.7
 
@@ -31,6 +31,14 @@ CREATE TABLE `auth` (
   `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `auth`
+--
+
+INSERT INTO `auth` (`username`, `password`) VALUES
+('user', 'user'),
+('user1', 'user1');
+
 -- --------------------------------------------------------
 
 --
@@ -41,6 +49,14 @@ CREATE TABLE `email_Ids` (
   `email` varchar(30) NOT NULL,
   `keywords` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `email_Ids`
+--
+
+INSERT INTO `email_Ids` (`email`, `keywords`) VALUES
+('user2@user2.com', ''),
+('user@user.com', '');
 
 -- --------------------------------------------------------
 
@@ -57,6 +73,13 @@ CREATE TABLE `events` (
   `sent_by` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `events`
+--
+
+INSERT INTO `events` (`date`, `title`, `body`, `link`, `keywords`, `sent_by`) VALUES
+('2019-11-09', 'Open Mic', 'Open Mic', NULL, 'Cultural', 'user@user.com');
+
 -- --------------------------------------------------------
 
 --
@@ -67,6 +90,14 @@ CREATE TABLE `keywords` (
   `keyword` varchar(40) NOT NULL,
   `emails` text
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `keywords`
+--
+
+INSERT INTO `keywords` (`keyword`, `emails`) VALUES
+('cultural', 'user@user.com'),
+('sports', 'user2@user2.com');
 
 --
 -- Indexes for dumped tables

@@ -54,6 +54,11 @@ _END;
 					<div class="row">
 				    	<a href="add_event.php" class="p-3 m-3 btn btn-primary">Add Event</a>
 				    </div>
+					</br>
+					</br>
+					<div class="row">
+				    	<a href="logout.php" class="p-3 m-3 btn btn-primary">Logout</a>
+				    </div>
 			    </div>
 
 			</body>

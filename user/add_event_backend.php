@@ -78,5 +78,6 @@
 	}
 
 	echo "Event successfully added !!";	
+	header("Refresh:01 ; url='profile.php'");
 	
 ?>

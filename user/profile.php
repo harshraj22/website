@@ -8,9 +8,13 @@
 	$_SESSION['image'] = $image;}
 	$image = $_SESSION['image'];
 
-
-
+	if($_SESSION['user']==="manageevents123@gmail.com") {
+		$_SESSION['loggedIn'] = true;
+		header("Location: add_keywords.php");
+	}
+	else {
 	$_SESSION['loggedIn'] = true;
+}
 ?>
 
 <!DOCTYPE html>
@@ -53,7 +57,7 @@
                     <a class="nav-link" href="profile.php">Profile</a>
                 </li>
             </ul>
-            <form class="form-inline my-2 my-lg-0" action="#">
+            <form class="form-inline my-2 my-lg-0" action="filter.php">
                 <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"> -->
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
@@ -111,9 +115,9 @@
 					</br>
 					</br>
 					<div class="row">
-				    	<a href="https://calendar.google.com/calendar/embed?src=180010012%40iitdh.ac.in&ctz=Asia%2FKolkata" class="p-3 m-3 btn btn-primary">Calendar</a>
-				    	<a href="https://calendar.google.com/calendar/embed?src=iitdh.ac.in_kg93fmiu87ft3grqjva0r0fd8s%40group.calendar.google.com&ctz=Asia%2FKolkata" class="p-3 m-3 btn btn-primary">Cultural</a>
-				    	<a href="https://calendar.google.com/calendar/embed?src=iitdh.ac.in_onf4cdo18u684mqofapld4j2og%40group.calendar.google.com&ctz=Asia%2FKolkata" class="p-3 m-3 btn btn-primary">Sports</a>
+				    	<a href="https://calendar.google.com/calendar/embed?src=manageevents123%40gmail.com&ctz=Asia%2FKolkata" class="p-3 m-3 btn btn-primary">Calendar</a>
+				    	<a href="https://calendar.google.com/calendar/embed?src=dt7kcs78evt5eca4c25jbthcv0%40group.calendar.google.com&ctz=Asia%2FKolkata" class="p-3 m-3 btn btn-primary">Cultural</a>
+				    	<a href="https://calendar.google.com/calendar/embed?src=2lu9o9ti61rdt8c9dvs0pkb2tg%40group.calendar.google.com&ctz=Asia%2FKolkata" class="p-3 m-3 btn btn-primary">Sports</a>
 				    </div>
 					</br>
 					</br>
@@ -135,3 +139,4 @@ _END;
 	// }
 
 ?>
+

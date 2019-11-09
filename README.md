@@ -5,7 +5,7 @@ gmail is often filled with lots of unwanted mails.
 
 ### A quick Survey:
 A quick survey done on the students of our college, shows the following results:
-
+[here](https://docs.google.com/spreadsheets/d/1hlGq49mgU1aI4HZ0VDs8HF-G0QmPFJnnBxe70WuK5Gc/edit?usp=sharing)
 // results
 
 
@@ -66,3 +66,4 @@ A quick survey done on the students of our college, shows the following results:
 		            |-- update_preferences.php
 		            `-- update_preferences_table.php
 	```
+	* In case something goes wrong with google sign in, check form action in auth.php : http://localhost/website/website/user/profile.php & compare with the directory structure. And port for localhost should be 80

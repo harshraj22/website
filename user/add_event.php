@@ -1,7 +1,7 @@
 <?php
-	//just for testing remov afterwards
+	//just for testing remove afterwards
 	session_start();
-	//echo $_SESSION['user'];
+	//$_SESSION['user'] = "default";
 	$_SESSION['logged'] = true;
 ?>
 <html>
@@ -17,19 +17,51 @@
 	<form method="POST" action="add_event_backend.php">
 		<br><br>
 		<legend>Title of the event</legend>
-		<input type="text" name="title" placeholder="Title">
+		<input type="text" name="title" placeholder="Title" required>
 		<br><br>
 		<legend>Date</legend>
-		<input type="date" name="date" >
+		<input type="date" name="date" required>
 		<br><br>
 		<legend>Link</legend>
 		<input type="text" name="link" placeholder="link">
 		<br><br><br>
 		<legend>Select the keywords</legend>
-		<input type="checkbox" name="checklist[]" value="academics">Academics<br>
-		<input type="checkbox" name="checklist[]" value="sports">Sports<br>
-		<input type="checkbox" name="checklist[]" value="cultural">Cultural<br>
-		<input type="checkbox" name="checklist[]" value="talk">Talk<br>
+		<?php 
+			require_once '../login.php';
+
+			function Error($errno,$errstr){
+				echo "<script type='text/javascript'>alert('ERROR : $errstr');</script>;";
+				die();
+			}
+			set_error_handler("Error");
+
+
+			$conn = mysqli_connect($hostname,$username,$password);
+			if(!$conn){
+				trigger_error("1".mysqli_connect_error());
+			}
+
+			$query = "use mailmaintainer";
+			$result = mysqli_query($conn,$query);
+			if(!$result){
+				trigger_error("2".mysqli_connect_error());
+			}
+
+			$query = "select * from keywords";
+			$result = mysqli_query($conn,$query);
+			if(!$result){
+				trigger_error("3".mysqli_connect_error());
+			}
+
+			$numrows = mysqli_num_rows($result);
+			while($row = mysqli_fetch_row($result)){
+				echo "<input type='checkbox' name='checklist[]' value='$row[0]'>$row[0]<br>";
+				 //mysqli_free_result($result);
+			}
+
+
+		//echo'<input type="checkbox" name="checklist[]" value="academics">Academics<br>'
+		?>
 		<br>
 		<br>
 		<legend>Describtion</legend>

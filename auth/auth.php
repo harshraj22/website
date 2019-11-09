@@ -1,4 +1,4 @@
- 
+
 <?php
 	session_start();
 	require_once "../login.php";
@@ -19,19 +19,12 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-md-2">
-                            <form method='POST' action='' enctype='multipart/form-data'>
-                                <div class="form-group row-md-2">    
-                                    Username: <input type='text' name='username' class="form-control" placeholder="username" required>
-                                    <br>
-                                    Password: <input type='password' name='pass' class="form-control" placeholder="password" required>
-                                </div>
-                                    <input type='submit' class="btn btn-primary">
-                            </form>
+                            
                         </div>
                     </div>
                 </div>
                 <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-                <form type='post' action='http://localhost/website/website/user/profile.php'>
+                <form type='post' action='http://localhost/website/user/profile.php'>
                     <input type='hidden' id='idtoken' name='email'>
                     <input type='hidden' id='image' name='image'>
                     <input type='submit' id='submit' style='display: none;'>

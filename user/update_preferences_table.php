@@ -51,7 +51,7 @@
     </nav>
      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 </html>
@@ -70,7 +70,7 @@
 	        <div>
 	            <h1>Error 404 <br> <h3>The page you requested doesn't exists.</h3></h1>
 	        </div>
-	_END;
+_END;
 	    exit;
 	}
 	else if($_SESSION['loggedIn'] == false){
@@ -78,7 +78,7 @@
 			<div>
 				<h1>You need to log in first.</h1>
 			</div>
-		_END;
+_END;
 		header('Refresh:01; url=../auth/auth.php');
 		exit;
 	}
@@ -99,12 +99,12 @@
 			// iterate over all keywords
 			$cur_row = mysqli_fetch_row($all_keywords_result);
 			// cur_row = currently iterating checkbox
-			
+
 			if(isset($_GET["{$i}"])){
 				// if checked, make it into email
 				if(empty($final_keyword) == true)
 					$final_keyword = "{$cur_row[0]}";
-				else 
+				else
 					$final_keyword = $final_keyword.",{$cur_row[0]}";
 
 				$cur_key_res = mysqli_query($conn, "SELECT * FROM email_ids WHERE email='{$_SESSION['user']}'");
@@ -119,7 +119,7 @@
 					// if(empty($cur_key) == false)
 					if(empty($cur_row_emails) == false)
 						$cur_row_emails = $cur_row_emails.",{$_SESSION['user']}";
-					else 
+					else
 						$cur_row_emails = "{$_SESSION['user']}";
 
 					echo $cur_row_emails;
@@ -159,7 +159,7 @@
 
 		if($update_result)
 			echo "Successfully updated<br>";
-		else 
+		else
 			echo "Error while updating<br>".mysqli_error($conn);
 
 		header("Refresh:01 ; url='profile.php'");

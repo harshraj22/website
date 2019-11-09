@@ -12,13 +12,15 @@
 		echo <<< _END
 			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 			<link rel="stylesheet" href="index.css">
-			<div class="col-md-2">
-				<form method='POST' action='add_keywords.php' enctype='multipart/form-data'>
-					<div class="form-group row-md-2">    
-						Add new keyword: <input type='text' name='key' class="form-control" placeholder="username" required>
-					</div>
-						<input type='submit' name='submit' class="btn btn-primary">
-				</form>
+			<div class="d-flex justify-content-center">
+				<div class="col-md-2">
+					<form method='POST' action='add_keywords.php' enctype='multipart/form-data'>
+						<div class="form-group row-md-2">    
+							Add new keyword: <input type='text' name='key' class="form-control" placeholder="username" required>
+						</div>
+							<input type='submit' name='submit' class="btn btn-primary">
+					</form>
+				</div>
 			</div>
 _END;
 	}
@@ -55,8 +57,10 @@ _END;
 		header("Refresh:01; url='profile.php'");
 	}
 	echo <<<_END
-	<div class="row">
-		<a href="profile.php" class="p-2 m-3 btn btn-primary">Back to profile</a>
+	<div class="d-flex justify-content-center">
+		<div class="row">
+			<a href="profile.php" class="p-2 m-3 btn btn-primary">Back to profile</a>
+		</div>
 	</div>
 
 _END;

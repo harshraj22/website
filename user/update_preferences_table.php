@@ -56,15 +56,17 @@
 				$cur_key = mysqli_fetch_row($cur_key_res)[1];
 
 				// if checked key does not exist
-				if(strpos($cur_key, $cur_row[0]) == false){
+				if(strpos($cur_key, $cur_row[0]) === false){
 					$cur_row_emails = mysqli_query($conn, "SELECT * FROM keywords WHERE keyword='{$cur_row[0]}'");
 					$cur_row_emails = mysqli_fetch_row($cur_row_emails)[1];
+					echo $cur_key;
 					// if(empty($cur_key) == false)
 					if(empty($cur_row_emails) == false)
 						$cur_row_emails = $cur_row_emails.",{$_SESSION['user']}";
 					else 
 						$cur_row_emails = "{$_SESSION['user']}";
 
+					echo $cur_row_emails;
 					mysqli_query($conn, "UPDATE keywords SET emails='{$cur_row_emails}' WHERE keyword='{$cur_row[0]}'");
 
 				}
@@ -80,7 +82,7 @@
 				$cur_key = mysqli_fetch_row($cur_key_res)[1];
 
 				// if unchecked key exists
-				if(strpos($cur_key, $cur_row[0]) == true){
+				if(strpos($cur_key, $cur_row[0]) !== false){
 					$cur_row_emails = mysqli_query($conn, "SELECT * FROM keywords WHERE keyword='{$cur_row[0]}'");
 					$cur_row_emails = mysqli_fetch_row($cur_row_emails)[1];
 					$var = explode(",", $cur_row_emails);

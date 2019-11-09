@@ -24,7 +24,7 @@ A quick survey done on the students of our college, shows the following results:
 * Database Creation :
 	* Create database named ```mailmaintainer```
 	* Create all the required tables using [this link via command line](https://stackoverflow.com/a/16486033)
-	* Use ```main_table.sql``` , ```temp_table.sql```, ```mailmaintainer.sql``` for the above process.
+	* Use ```main_table.sql``` , ```temp_table.sql```, ```mailmaintainer.sql```, ```time_table.sql``` for the above process.
 	* This creates your basic database along with all the required tables.
 	* Run the following to add default admin in mysql ``` INSERT INTO auth VALUES('manageevents123@gmail.com','<insert admin password>'); ```
 

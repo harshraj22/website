@@ -15,16 +15,23 @@
             </head>
 
             <!-- =====================input form================== -->
-            <body>
+            <body style="background-image: url('../attachments/calendar.jpg')">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-md-2">
+                    <div class="row my-py-10" style = "top-margin:30%">
+                        <div class="col-md-4">
                             
+                        </div>
+                        <div class="col-md-4">
+                            
+                        </div>
+                        <div class="col-md-4">
+                            <p style="visibility: hidden;">ahdflsa<br><br><br><br><br><br><br><br></p>
+                            <h1 style="font-size:60px;">Event Manager</h1><br><br>
+                            <div style="width:200px" class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
                         </div>
                     </div>
                 </div>
-                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-                <form type='post' action='http://localhost/website/user/profile.php'>
+                <form type='post' action='http://localhost/website/website/user/profile.php'>
                     <input type='hidden' id='idtoken' name='email'>
                     <input type='hidden' id='image' name='image'>
                     <input type='submit' id='submit' style='display: none;'>

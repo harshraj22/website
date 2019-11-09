@@ -2,7 +2,7 @@
 	session_start();
 	require_once '../login.php';
 
-	if(!isset($_SESSION['user']) || $_SESSION['user'] != 'admin' || $_SESSION['loggedIn'] == false){
+	if(!isset($_SESSION['user']) || $_SESSION['user'] != 'manageevents123@gmail.com' || $_SESSION['loggedIn'] == false){
 		die("<h2> The page you requested doesn't exists.</h2>");
 		header("Refresh:01; url='profile.php'");
 	}

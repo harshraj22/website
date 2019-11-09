@@ -8,13 +8,13 @@
 	$_SESSION['image'] = $image;}
 	$image = $_SESSION['image'];
 
-	if($_SESSION['user']==="manageevents123@gmail.com") {
-		$_SESSION['loggedIn'] = true;
-		header("Location: add_keywords.php");
-	}
-	else {
+	// if($_SESSION['user']==="manageevents123@gmail.com") {
+	// 	$_SESSION['loggedIn'] = true;
+	// 	header("Location: add_keywords.php");
+	// }
+	//else {
 	$_SESSION['loggedIn'] = true;
-}
+//}
 ?>
 
 <!DOCTYPE html>
@@ -122,21 +122,22 @@
 					</br>
 					</br>
 
-					<div class="row">
-				    	<a href="logout.php" class="p-3 m-3 btn btn-primary">Logout</a>
-				    </div>
-
-					<div class="row">
-				    	<a href="slot.php" class="p-3 m-3 btn btn-primary">Time Table</a>
-				    </div>
-
-			    </div>
-
-			</body>
-			</html>
-
 _END;
 	// }
+	if($_SESSION['user']=='manageevents123@gmail.com'){
+		echo '<a href="add_keywords.php" class="p-3 m-3 btn btn-primary">Add keywords</a>';
+	}
+	echo '<div class="row">
+		<a href="logout.php" class="p-3 m-3 btn btn-primary">Logout</a>
+	</div>
+
+	<div class="row">
+		<a href="slot.php" class="p-3 m-3 btn btn-primary">Time Table</a>
+	</div>
+
+			</div>
+		</body>
+	</html>'
 
 ?>
 

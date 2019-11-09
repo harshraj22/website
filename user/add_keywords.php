@@ -10,10 +10,16 @@
 	if(!isset($_POST['submit'])){
 		// display form with submit button
 		echo <<< _END
-			<form method='POST' action='add_keywords.php'>
-				<input type='text' name='key'>
-				<input type='submit' name='submit' value='submit'>
-			</form>
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+			<link rel="stylesheet" href="index.css">
+			<div class="col-md-2">
+				<form method='POST' action='add_keywords.php' enctype='multipart/form-data'>
+					<div class="form-group row-md-2">    
+						Add new keyword: <input type='text' name='key' class="form-control" placeholder="username" required>
+					</div>
+						<input type='submit' name='submit' class="btn btn-primary">
+				</form>
+			</div>
 _END;
 	}
 	else{
@@ -50,7 +56,7 @@ _END;
 	}
 	echo <<<_END
 	<div class="row">
-		<a href="logout.php" class="p-3 m-3 btn btn-primary">Logout</a>
+		<a href="profile.php" class="p-2 m-3 btn btn-primary">Back to profile</a>
 	</div>
 
 _END;

@@ -4,27 +4,68 @@
 	require_once "../login.php";
 
 	// If this page was requested for first time, username and password in html form won't be set
-	if(!isset($_POST['username']) || !isset($_POST['pass'])){
+    if(!isset($_POST['idtoken'])){
         echo <<< _END
-        
-			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-            <link rel="stylesheet" href="index.css">
+            <html>
+            <head>
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+                <link rel="stylesheet" href="index.css">
+                <meta name="google-signin-client_id" content="22046108295-tm5jl58sabcn5q8475veo04shonrs5va.apps.googleusercontent.com">
+                <meta name="google-signin-scope" content="profile email">
+            </head>
 
-			<!-- =====================input form================== -->
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-2">
-						<form method='POST' action='' enctype='multipart/form-data'>
-							<div class="form-group row-md-2">    
-								Username: <input type='text' name='username' class="form-control" placeholder="username" required>
-								<br>
-								Password: <input type='password' name='pass' class="form-control" placeholder="password" required>
-							</div>
-								<input type='submit' class="btn btn-primary">
-						</form>
-					</div>
+            <!-- =====================input form================== -->
+            <body>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <form method='POST' action='' enctype='multipart/form-data'>
+                                <div class="form-group row-md-2">    
+                                    Username: <input type='text' name='username' class="form-control" placeholder="username" required>
+                                    <br>
+                                    Password: <input type='password' name='pass' class="form-control" placeholder="password" required>
+                                </div>
+                                    <input type='submit' class="btn btn-primary">
+                            </form>
+                        </div>
+                    </div>
                 </div>
-            </div>
+                <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+                <form type='post' action='http://localhost/website/website/user/profile.php'>
+                    <input type='hidden' id='idtoken' name='email'>
+                    <input type='hidden' id='image' name='image'>
+                    <input type='submit' id='submit' style='display: none;'>
+                </form>
+                <script src="https://apis.google.com/js/platform.js"></script>
+                <script>
+                function onSignIn(googleUser) {
+                    // Useful data for your client-side scripts:
+                    var profile = googleUser.getBasicProfile();
+                    console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+                    console.log('Full Name: ' + profile.getName());
+                    console.log('Given Name: ' + profile.getGivenName());
+                    console.log('Family Name: ' + profile.getFamilyName());
+                    console.log("Image URL: " + profile.getImageUrl());
+                    console.log("Email: " + profile.getEmail());
+
+                    // The ID token you need to pass to your backend:
+                    var id_token = googleUser.getAuthResponse().id_token;
+                    console.log("ID Token: " + id_token);
+
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', 'auth.php');
+                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                    xhr.onload = function() {
+                    console.log('Signed in as: ' + xhr.responseText);
+                    };
+                    xhr.send('idtoken=' + id_token);
+                    document.getElementById('idtoken').value=profile.getEmail();
+                    document.getElementById('image').value=profile.getImageUrl();
+                    document.getElementById('submit').click();
+                }
+                </script>
+            </body>
+            </html>
 
 _END;
 	}
@@ -34,23 +75,22 @@ _END;
         if(!$conn)
             die("Error while connectine. Try later. <br>".mysqli_connect_error());
 
-        $currentUserName = trim($_POST['username']);
-        $currentUserPass = trim($_POST['pass']);
+        require_once '../auth/vendor/autoload.php';
 
-        $user_query = "SELECT * FROM auth WHERE username='{$currentUserName}' AND password='{$currentUserPass}'";
-        $user_result = mysqli_query($conn, $user_query);
+        // Get $id_token via HTTPS POST.
+        $id_token = $_POST['idtoken'];
+        $CLIENT_ID = "22046108295-tm5jl58sabcn5q8475veo04shonrs5va.apps.googleusercontent.com";
 
-        if(!$user_result)
-            die("Error matching credentials. Please try later.<br>".mysqli_error($conn));
-        else if(mysqli_num_rows($user_result) == 0){
-            echo "Username and password doesn't match.<br>";
-        }
-        else{
-            $_SESSION['user'] = $currentUserName;
-            $_SESSION['loggedIn'] = true;
-            echo "Successfully Logged In. Redirecting to Profile.<br>";
-            $data = mysqli_fetch_row($user_result);
-            header('Refresh:01; url=../user/profile.php');
+        $client = new Google_Client(['client_id' => $CLIENT_ID]);  // Specify the CLIENT_ID of the app that accesses the backend
+        $payload = $client->verifyIdToken($id_token);
+        if ($payload) {
+            $userid = $payload['sub'];
+            echo "success";
+            // If request specified a G Suite domain:
+            //$domain = $payload['hd'];
+        } else {
+        // Invalid ID token
+            echo "failure";
         }
     }
 

@@ -3,6 +3,10 @@
 	require_once '../login.php';
 	// in case the user directly want's to access this page, php doesn't know whose profile to display
 	//echo $_SESSION['user'];
+	$id_token = $_GET['email'];
+	$image = $_GET['image'];
+	$_SESSION['user'] = $id_token;
+	$_SESSION['loggedIn'] = true;
 ?>
 
 <!DOCTYPE html>
@@ -60,24 +64,25 @@
 
 
 <?php
-	if(!isset($_SESSION['user'])){
-	    echo <<< _END
-	        <div>
-	            <h1>Error 404 <br> <h3>The page you requested doesn't exists.</h3></h1>
-	        </div>
-_END;
-	    exit;
-	}
-	else if($_SESSION['loggedIn'] == false){
-		echo <<< _END
-			<div>
-				<h1>You need to log in first.</h1>
-			</div>
-_END;
-		header('Refresh:01; url=../auth/auth.php');
-		exit;
-	}
-	else{
+// 	if(!isset($_SESSION['user'])){
+// 	    echo <<< _END
+// 	        <div>
+// 	            <h1>Error 404 <br> <h3>The page you requested doesn't exists.</h3></h1>
+// 	        </div>
+// _END;
+// 	    exit;
+// 	}
+// 	else if($_SESSION['loggedIn'] == false){
+// 		echo <<< _END
+// 			<div>
+// 				<h1>You need to log in first.</h1>
+// 			</div>
+// _END;
+// 		header('Refresh:01; url=../auth/auth.php');
+// 		exit;
+// 	}
+// 	else{
+		
 		echo <<< _END
 			<!DOCTYPE html>
 			<html>
@@ -93,7 +98,7 @@ _END;
 			    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 			    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 			    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-
+				<img src="{$image}">
 			    <div class="container p-5 m-5">
 			    	<div class="row">
 				    	<a href="update_preferences.php" class="p-3 m-3 btn btn-primary">Update Preferences</a>
@@ -123,6 +128,6 @@ _END;
 			</html>
 
 _END;
-	}
+	// }
 
 ?>

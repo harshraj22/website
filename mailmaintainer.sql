@@ -45,7 +45,7 @@ INSERT INTO `auth` (`username`, `password`) VALUES
 -- Table structure for table `email_Ids`
 --
 
-CREATE TABLE `email_Ids` (
+CREATE TABLE `email_ids` (
   `email` varchar(30) NOT NULL,
   `keywords` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -54,7 +54,7 @@ CREATE TABLE `email_Ids` (
 -- Dumping data for table `email_Ids`
 --
 
-INSERT INTO `email_Ids` (`email`, `keywords`) VALUES
+INSERT INTO `email_ids` (`email`, `keywords`) VALUES
 ('user2@user2.com', ''),
 ('user@user.com', '');
 
@@ -113,7 +113,7 @@ ALTER TABLE `auth`
 --
 -- Indexes for table `email_Ids`
 --
-ALTER TABLE `email_Ids`
+ALTER TABLE `email_ids`
   ADD PRIMARY KEY (`email`),
   ADD UNIQUE KEY `email` (`email`);
 

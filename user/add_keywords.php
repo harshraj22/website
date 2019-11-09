@@ -14,7 +14,7 @@
 				<input type='text' name='key'>
 				<input type='submit' name='submit' value='submit'>
 			</form>
-		_END;
+_END;
 	}
 	else{
 		$conn = mysqli_connect($hostname, $username, $password, $database);
@@ -48,4 +48,10 @@
 			echo "<h1>Error updating the given keyword.</h1><br>";
 		header("Refresh:01; url='profile.php'");
 	}
+	echo <<<_END
+	<div class="row">
+		<a href="logout.php" class="p-3 m-3 btn btn-primary">Logout</a>
+	</div>
+
+_END;
 ?>

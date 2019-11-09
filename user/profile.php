@@ -3,8 +3,8 @@
 	require_once '../login.php';
 	// in case the user directly want's to access this page, php doesn't know whose profile to display
 	//echo $_SESSION['user'];
-	
-	if(!isset($_SESSION['user'])) {$id_token = $_GET['email'];echo "done";$image = $_GET['image'];$_SESSION['user'] = $id_token;
+
+	if(!isset($_SESSION['user'])) {$id_token = $_GET['email'];$image = $_GET['image'];$_SESSION['user'] = $id_token;
 	$_SESSION['image'] = $image;}
 	$image = $_SESSION['image'];
 
@@ -86,7 +86,7 @@
 // 		exit;
 // 	}
 // 	else{
-		
+
 		echo <<< _END
 			<!DOCTYPE html>
 			<html>

@@ -12,6 +12,11 @@
 	$user = $_SESSION['user'];
 	$logged = $_SESSION['logged'];
 	
+	if($logged==false){
+		echo "<script type='text/javascript'>alert('Session retired! Please login again'); window.location.href = './add_event.php'; </script>";
+		//this should redirect to login form
+	}
+
 	$title = NULL;
 	$title = $_POST['title'];
 	if($title==NULL){
@@ -42,7 +47,7 @@
 	}
 
 	if($string==""){
-		echo "<script>alert('Must select atleast one tag!'')</script>";
+		echo "<script>alert('Must select atleast one tag!'');window.location.href = './add_event.php'; </script>";
 	}
 
 	$conn = mysqli_connect($hostname,$username,$password);
@@ -52,11 +57,19 @@
 		trigger_error("1".mysqli_connect_error());
 	}
 
-	$query = "use ".$database;
+	$query = "use mailmaintainer";
 	$result = mysqli_query($conn,$query);
 	if(!$result){
 		trigger_error("2".mysqli_connect_error());
 	}
+
+	$query = "select * from events where date = '{$date}' and title = '{$title}'";
+	$result = mysqli_query($conn,$query);
+	$num_rows = mysqli_num_rows($result);
+	if($num_rows!=0){
+		echo "<script type='text/javascript'>alert('Event already exists!'); window.location.href = './add_event.php'; </script>";
+	}
+
 
 	$query = "insert into events values ('{$date}','{$title}','{$body}','{$link}','{$string}','{$user}')";
 	$result = mysqli_query($conn,$query);
@@ -64,6 +77,6 @@
 		trigger_error("3".mysqli_connect_error());
 	}
 
-	echo "heha";	
+	echo "Event successfully added !!";	
 	
 ?>

@@ -3,10 +3,13 @@
 students is based on mails. Due to this some important mails are quite often missed and students
 gmail is often filled with lots of unwanted mails.
 
-### A quick Survey:
+## A quick Survey:
 A quick survey done on the students of our college, shows the following results:
 [here](https://docs.google.com/spreadsheets/d/1hlGq49mgU1aI4HZ0VDs8HF-G0QmPFJnnBxe70WuK5Gc/edit?usp=sharing)
-// results
+
+## Screenshots:
+![Screenshot1](https://user-images.githubusercontent.com/46621760/68603743-ecbffa80-04ce-11ea-9cbe-d228fa6ae295.png)
+![Screenshot2](https://user-images.githubusercontent.com/46621760/68606615-d0bf5780-04d4-11ea-8fc6-65a1df45a2d3.png)
 
 
 # Installation Guide :
